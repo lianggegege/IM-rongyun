@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title>直播测试</title>
+		<link rel="stylesheet" href="css/index.css" />
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.messege {
+				width: 100%;
+				height: 40px;
+				display: flex;
+				margin-top: 20px;
+			}
+			
+			.messege input {
+				flex: 3;
+			}
+			
+			.messege .send {
+				flex: 1;
+				background: deepskyblue;
+				border-radius: 6px;
+				color: #fff;
+			}
+			
+			#sendGift {
+				width: 100vw;
+				list-style: none;
+				overflow: hidden;
+			}
+			
+			#sendGift li {
+				float: left;
+			}
+			
+			#shipin {
+				position: relative;
+				width: 100vw;
+				height: 100vh;
+				background:rgba(0,0,0,1);
+				overflow: hidden;
+			}
+			
+			#shipin video {
+				width:100vw;
+				height: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				margin: auto;
+			}
+			#live_gift{
+				position:absolute;
+				top:50%;
+				left: 15px;
+				width:150px;
+				height: 50px;
+				margin-top:-25px;
+				line-height: 50px;
+				list-style: none;
+				overflow: auto;
+				overflow-x: hidden;
+			}
+			#live_gift li{
+				width:1px;
+				height: 50px;
+				color:#fff;
+				opacity:1;
+			}
+			#container {
+				position: absolute;
+				width: 100vw;
+				height: 120px;
+				bottom: 40px;
+				left: 0;
+				overflow: scroll;
+				overflow-x: hidden;
+			}
+			
+			#container li {
+				width: 95%;
+				padding-left: 5%;
+				text-align: left;
+				line-height: 30px;
+				font-size: 14px;
+				color: yellow;
+			}
+			#container li span{
+				color:#fff;
+			}
+			#warn {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100vw;
+				height: 40px;
+			}
+			
+			#warn div {
+				float: left;
+				color: #fff;
+				line-height: 40px;
+				margin-left: 5vw;
+				color: red;
+			}
+			
+			#warn div:last-child {
+				float: right;
+				margin-right: 5vw;
+				line-height: 20px;
+				font-size: 10px;
+				text-align: center;
+			}
+			#person_mes{
+				position: absolute;
+				top:0;
+				left: 0;
+				width: 90vw;
+				padding: 5vw;
+				height:100px;
+				overflow: hidden;
+			}
+			#person_mes .name_avator{
+				width:100%;
+				height:50px;
+				overflow: hidden;
+				padding-bottom: 10px;
+			}
+			#person_mes .name_avator .avator{
+				float: left;
+				width: 50px;
+				height: 50px;
+				border-radius: 100%;
+			}
+			#person_mes .name_avator .name{
+				margin-left: 10px;
+				float: left;
+				height: 50px;
+				color:#fff;
+			}
+			#person_mes .name_avator .name h3{
+				font-size: 14px;
+				font-weight: 300;
+				line-height: 30px;
+			}
+			#person_mes .name_avator .name p{
+				font-size: 12px;
+			}
+			.live_num{
+				font-size: 12px;
+				padding:3px 6px;
+				border-radius: 15px;
+				background:rgba(255,255,255,0.2);
+				color:#fff;
+				display: inline;
+			}
+			.live_num span{
+				font-size: 10px;
+			}
+			.concern{
+				position: absolute;
+				top: 30px;
+				right: 5vw;
+				font-size: 16px;
+				color: #fff;
+				background: deepskyblue;
+				line-height: 26px;
+				width:60px;
+				height: 26px;
+				text-align: center;
+				border-radius: 15px;
+			}
+			.play_icon{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width:40px;
+			    height: 40px;
+			    margin-left: -20px;
+			    margin-top: -20px;
+			}
+			.play_icon img{
+				width:40px;
+				height: 40px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="shipin" class="video-container shipin qudiao">
+			<video id="video" webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" width="100%" height="100%" style="padding: 0; margin: 0;" preload="auto" src="http://hd-record.yiketalks.com/test.m3u8"></video>	
+			<div class="play_icon">
+				<img src="../img/play.png" />
+			</div>
+			<ul id="live_gift">
+			</ul>
+			<div id="person_mes">
+				<div class="name_avator">
+					<img class="avator" src="../img/120.png" />
+					<div class="name">
+						<h3>齐天大圣</h3>
+						<p>一刻号：123456</p>						
+					</div>
+				</div>
+				<div class="live_num">
+					直播LIVE <span>1000人</span>
+				</div>
+				<div class="concern">
+					关注
+				</div>
+			</div>
+			<ul id="container">
+			</ul>			
+			<div id="warn">
+				<div onclick="alert('请下载一刻app,与主播互动，观看更多精彩视频')">信息</div>
+				<div onclick="alert('请下载一刻app,与主播互动，观看更多精彩视频')">礼物</div>
+				<div onclick="location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.yikelive'">下载一刻talks APP<br>与主播互动</div>
+			</div>
+		</div>
+		<div class="messege">
+			<input id="message" type="text" id="message" placeholder="请输入信息" />
+			<button class="send" id="send">发送</button>
+		</div>
+		<ul id="sendGift" style="margin-top:20px">
+			<li style="width:25vw;height:50px; line-height: 50px; text-align: center; background:greenyellow" data-gift="苹果">送苹果</li>
+			<li style="width:25vw;height:50px; line-height: 50px; text-align: center; background:greenyellow" data-gift="梨">送梨</li>
+			<li style="width:25vw;height:50px; line-height: 50px; text-align: center; background:greenyellow" data-gift="香蕉">送香蕉</li>
+			<li style="width:25vw;height:50px; line-height: 50px; text-align: center; background:greenyellow" data-gift="桃">送桃</li>
+		</ul>
+
+		<div id="bQ" style="width:100%;display: none; padding-top:20px">
+
+		</div>
+
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="http://cdn.ronghub.com/RongIMLib-2.2.5.min.js"></script>
+	<!--表情库-->
+	<script src="https://cdn.ronghub.com/RongEmoji-2.2.5.min.js"></script>
+	<script src="js/iphone-inline-video.browser.js"></script>
+	<!--<script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.2.2"></script>-->
+	<script src="js/index.js"></script>
+
+</html>
